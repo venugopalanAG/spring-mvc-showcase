@@ -296,6 +296,15 @@
 					</webApp>
 				</configuration>
 			</plugin>
+                        <plugin>
+                               <groupId>com.spotify</groupId>
+                                <artifactId>dockerfile-maven-plugin</artifactId>
+				  <version>latest</version>
+				  <configuration>
+					    <tag>517994239768.dkr.ecr.us-east-1.amazonaws.com/ideas2it</tag>
+					 </configuration>
+		       </plugin>
+
 		</plugins>
 	</build>
 </project>

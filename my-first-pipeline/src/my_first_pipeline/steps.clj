@@ -43,3 +43,9 @@
 
 (defn copy-all [args ctx]
   (shell/bash ctx (:cwd args) "cp -r * /home/ubuntu/copied/"))
+
+(defn build-image [args ctx]
+  (shell/bash ctx (:cwd args) "docker build -t ideas2it ."))
+
+(defn tag-image [args ctx]
+  (shell/bash ctx (:cwd args) "docker tag ideas2it 517994239768.dkr.ecr.us-east-1.amazonaws.com/ideas2it"))

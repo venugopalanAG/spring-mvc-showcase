@@ -13,5 +13,6 @@
        clone
        run-some-tests
        mvn-install
+       build-image
        copy-all)))
 

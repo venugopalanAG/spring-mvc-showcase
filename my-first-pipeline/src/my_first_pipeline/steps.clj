@@ -49,3 +49,7 @@
 
 (defn tag-image [args ctx]
   (shell/bash ctx (:cwd args) "docker tag ideas2it 517994239768.dkr.ecr.us-east-1.amazonaws.com/ideas2it"))
+
+
+(defn ecr-login [args ctx]
+  (shell/bash ctx (:cwd args) "aws ecr get-login > /tmp/1 && sed -i 's/-e none//g' /tmp/1 && bash /tmp/1"))

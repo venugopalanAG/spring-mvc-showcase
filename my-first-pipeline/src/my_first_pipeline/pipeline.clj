@@ -13,8 +13,8 @@
        clone
        run-some-tests
        mvn-install
-       copy-all
        build-image
        tag-image
-       ecr-login)))
+       ecr-login
+       push-image)))
 

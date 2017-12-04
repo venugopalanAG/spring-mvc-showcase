@@ -3,7 +3,8 @@
             [lambdacd-git.core :as lambdacd-git]))
 
 
-(def repo-uri "https://github.com/spring-projects/spring-mvc-showcase.git")
+;;(def repo-uri "https://github.com/spring-projects/spring-mvc-showcase.git")
+(def repo-uri "https://github.com/venugopalanAG/spring-mvc-showcase.git")
 ;;(def repo-uri "https://github.com/jitpack/maven-simple.git")
 ;;(def repo-uri "https://github.com/venugopalanAG/appfuse.git")
 (def repo-branch "master")
@@ -45,7 +46,7 @@
   (shell/bash ctx (:cwd args) "rm -rf /home/ubuntu/copied/* && cp -r * /home/ubuntu/copied/"))
 
 (defn build-image [args ctx]
-  (shell/bash ctx (:cwd args) "cd /home/ubuntu/copied/ && docker build -t ideas2it ."))
+  (shell/bash ctx (:cwd args) "docker build -t ideas2it ."))
 
 (defn tag-image [args ctx]
   (shell/bash ctx (:cwd args) "docker tag ideas2it 517994239768.dkr.ecr.us-east-1.amazonaws.com/ideas2it"))
@@ -53,3 +54,8 @@
 
 (defn ecr-login [args ctx]
   (shell/bash ctx (:cwd args) "aws ecr get-login > /tmp/1 && sed -i 's/-e none//g' /tmp/1 && bash /tmp/1"))
+
+
+(defn push-image [args ctx]
+  (shell/bash ctx (:cwd args) "docker push 517994239768.dkr.ecr.us-east-1.amazonaws.com/ideas2it"))
+
